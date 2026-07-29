@@ -15,7 +15,7 @@
 #   Score 50 – 59   →  Grade D
 #   Score below 50  →  Grade F
 #
-# -----------------------------------------------------------------------------
+
 # EXPECTED INPUT / OUTPUT EXAMPLES
 # -----------------------------------------------------------------------------
 #
@@ -39,9 +39,37 @@
 #   If it is not, return None and let main() print the error message.
 # - Use if / elif / else to determine the grade.
 #
+def get_grade(score):
+    """
+    Validates score and returns corresponding letter grade.
+    Returns None if score is out of 0-100 range.
+    """
+    if score < 0 or score > 100:
+        return None
+    elif score >= 80:
+        return 'A'
+    elif score >= 70:
+        return 'B'
+    elif score >= 60:
+        return 'C'
+    elif score >= 50:
+        return 'D'
+    else:
+        return 'F'
 
-#
-# =============================================================================
-# YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
-# =============================================================================
+def main():
+    try:
+        score = float(input("Enter student score (0-100): "))
+        grade = get_grade(score)
+        
+        if grade is None:
+            print("Error: Score must be between 0 and 100.")
+        else:
+            print(f"Grade: {grade}")
+    except ValueError:
+        print("Please enter a valid numeric score.")
+
+if __name__ == "__main__":
+    main()
+
 
